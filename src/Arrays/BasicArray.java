@@ -38,6 +38,11 @@ public class BasicArray<T> {
             // 这里需要扩容
             throw new IllegalArgumentException("no enough capacity");
         }
+
+        for(int i = size - 1; i >= index; i --) {
+            data[i + 1] = data[i];
+        }
+
         data[index] = t;
         size++;
     }
@@ -65,7 +70,7 @@ public class BasicArray<T> {
      */
     public boolean contains(T t) {
         for (int i = 0; i < size; i++) {
-            if (t.equals(data[i])) {
+            if (data[i].equals(t)) {
                 return true;
             }
         }
@@ -79,7 +84,7 @@ public class BasicArray<T> {
      */
     public int find(T t) {
         for (int i = 0; i < size; i++) {
-            if (t.equals(data[i])) {
+            if (data[i].equals(t)) {
                 return i;
             }
         }
@@ -139,7 +144,7 @@ public class BasicArray<T> {
         }
 
         size--;
-        data[index] = null;
+        data[size] = null;
 
         return t;
     }
