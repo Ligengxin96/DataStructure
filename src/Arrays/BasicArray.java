@@ -54,6 +54,7 @@ public class BasicArray<T> {
      */
     public void add(T t) {
         add(t, size);
+        return;
     }
 
     /**
