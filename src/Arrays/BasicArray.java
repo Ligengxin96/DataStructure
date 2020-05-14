@@ -147,7 +147,8 @@ public class BasicArray<T> {
         size--;
         data[size] = null;
 
-        if (size == data.length / 2) {
+        // 如果date.length = 1的时候 data.length / 2 等于 0 导致创建一个容量为0的数组
+        if (size == data.length / 4 && data.length / 2 != 0) {
             recapacity(data.length / 2);
         }
 
