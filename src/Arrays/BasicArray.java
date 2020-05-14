@@ -1,5 +1,7 @@
 package Arrays;
 
+import java.util.Objects;
+
 /**
  * @author : Mr.Li
  * @version : V1.0
@@ -35,8 +37,7 @@ public class BasicArray<T> {
             throw new IllegalArgumentException("illegal index");
         }
         if (size == data.length) {
-            // 这里需要扩容
-            throw new IllegalArgumentException("no enough capacity");
+            recapacity(data.length * 2);
         }
 
         for(int i = size - 1; i >= index; i --) {
@@ -146,6 +147,10 @@ public class BasicArray<T> {
         size--;
         data[size] = null;
 
+        if (size == data.length / 2) {
+            recapacity(data.length / 2);
+        }
+
         return t;
     }
 
@@ -183,6 +188,17 @@ public class BasicArray<T> {
             throw new IllegalArgumentException("illegal index");
         }
         data[index] = t;
+    }
+
+    /**
+     * 扩容
+     */
+    private void recapacity(int capacity){
+        T[] newData = (T[])new Object[capacity];
+        for (int i = 0; i < size; i++) {
+            newData[i] = data[i];
+        }
+        data = newData;
     }
 
     @Override
