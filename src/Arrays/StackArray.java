@@ -46,7 +46,7 @@ public class StackArray<T> implements Stack<T> {
     // 移除栈顶元素
     @Override
     public T pop() {
-        return (T) stack.remove(stack.getSize());
+        return (T) stack.remove(stack.getSize() - 1);
     }
 
     // 入栈

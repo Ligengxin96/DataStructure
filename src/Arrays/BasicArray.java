@@ -54,7 +54,6 @@ public class BasicArray<T> {
      */
     public void add(T t) {
         add(t, size);
-        return;
     }
 
     /**
@@ -99,7 +98,7 @@ public class BasicArray<T> {
      * @return 该下标位置的元素
      */
     public T get(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("illegal index");
         }
         return data[index];
@@ -135,7 +134,7 @@ public class BasicArray<T> {
      * @return 被删除的元素
      */
     public T remove(int index) {
-        if (index < 0 || index > size) {
+        if (index < 0 || index >= size) {
             throw new IllegalArgumentException("illegal index");
         }
 
