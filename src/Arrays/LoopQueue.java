@@ -86,11 +86,8 @@ public class LoopQueue<T> implements Queue<T> {
     public void recapacity(int capacity){
         T[] data = (T[])new Object[capacity + 1];
         for (int i = 0; i < size; i++) {
-            data[i] = loopQueue[(i + front) % data.length];
+            data[i] = loopQueue[i];
         }
-        front = 0;
-        tail = size;
-        loopQueue = data;
     }
 
     @Override
