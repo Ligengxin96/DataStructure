@@ -210,8 +210,9 @@ public class BasicArray<T> {
 
         for(int i = 0 ; i < size ; i ++){
             str.append(data[i]);
-            if(i != size - 1)
+            if(i != size - 1) {
                 str.append(", ");
+            }
         }
 
         str.append(']');

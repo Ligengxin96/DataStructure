@@ -58,13 +58,14 @@ public class StackArray<T> implements Stack<T> {
     @Override
     public String toString(){
         StringBuilder str = new StringBuilder();
-        str.append("stack bottom : ");
+        str.append(String.format("stack: size = %d , capacity = %d\n", getSize(), getCapacity()));
         str.append('[');
 
         for(int i = 0 ; i < stack.getSize() ; i ++){
             str.append(stack.get(i));
-            if(i != stack.getSize() - 1)
+            if(i != stack.getSize() - 1) {
                 str.append(", ");
+            }
         }
 
         str.append(']');
