@@ -26,8 +26,6 @@ public class BasicLinkedList<T> {
             this.e = null;
             this.next = null;
         }
-
-
     }
 
     private Node virtualHead;
