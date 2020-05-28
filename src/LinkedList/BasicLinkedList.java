@@ -38,11 +38,6 @@ public class BasicLinkedList<T> {
         size = 0;
     }
 
-    public void add(T e) {
-        virtualHead.next = new Node(e);
-        size++;
-    }
-
     // 在链表的index位置添加新的元素
     public void add(int index, T e) {
         if(index < 0 || index > size) {
@@ -113,6 +108,32 @@ public class BasicLinkedList<T> {
         current.e = e;
     }
 
+    // 从链表中删除index位置的元素, 返回删除的元素
+    public T remove(int index){
+        if(index < 0 || index >= size) {
+            throw new IllegalArgumentException("illegal index");
+        }
+        Node per = virtualHead;
+        for (int i = 0; i < index; i++) {
+            per = per.next;
+        }
+        Node deleteNode = per.next;
+        per.next = deleteNode.next;
+        deleteNode.next = null;
+        size--;
+        return deleteNode.e;
+    }
+
+    // 从链表中删除第一个位置的元素, 返回删除的元素
+    public T removeFirst(){
+        return remove(0);
+    }
+
+    // 从链表中删除最后一个位置的元素, 返回删除的元素
+    public T removeLast(){
+       return remove(size - 1);
+    }
+
     // 判断链表是否为空
     public boolean isEmpty(){
         return  size == 0;
@@ -127,7 +148,7 @@ public class BasicLinkedList<T> {
     public String toString(){
         StringBuilder res = new StringBuilder();
         for(Node current = virtualHead.next; current != null; current = current.next) {
-            res.append(current + "->");
+            res.append(current.e + "->");
         }
         res.append("Null");
         return res.toString();
