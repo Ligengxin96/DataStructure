@@ -51,16 +51,22 @@ public class QueueArray<T> implements Queue<T> {
         return (T)queue.get(0);
     }
 
+    // 获取队列的容量
+    public int getCapacity() {
+        return queue.getCapacity();
+    }
+
     @Override
     public String toString(){
         StringBuilder str = new StringBuilder();
-        str.append("queue front: ");
+        str.append(String.format("queue: size = %d , capacity = %d\n", getSize(), getCapacity()));
         str.append('[');
 
         for(int i = 0 ; i < queue.getSize() ; i ++){
             str.append(queue.get(i));
-            if(i != queue.getSize() - 1)
+            if(i != queue.getSize() - 1) {
                 str.append(", ");
+            }
         }
 
         str.append(']');

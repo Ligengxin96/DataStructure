@@ -1,18 +1,18 @@
 package test.Arrays;
 
-import Arrays.QueueArray;
+import Arrays.LoopQueue;
 
 /**
- * @author : Mr.Li
+ * @author : ligengxin
  * @version : V1.0
  * @packageName :  test.Arrays
- * @created : 2020/5/14
+ * @created : 2020/5/20
  * @description :
  */
-public class TestQueueArray {
+public class TestLoopQueue {
 
-    public static void test05(){
-        QueueArray<Integer> queue = new QueueArray();
+    public static void test07(){
+        LoopQueue<Integer> queue = new LoopQueue();
 
         for(int i = 0 ; i < 10 ; i ++){
             queue.enqueue(i);
@@ -26,6 +26,6 @@ public class TestQueueArray {
     }
 
     public static void main(String[] args) {
-        test05();
+        test07();
     }
 }
