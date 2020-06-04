@@ -1,5 +1,6 @@
 package BinarySearchTree;
 
+import Arrays.QueueArray;
 import Arrays.StackArray;
 
 /**
@@ -154,8 +155,8 @@ public class BinarySearchTree<E extends Comparable<E>> {
         System.out.printf(node.e.toString());
     }
 
-    // 非递归前序遍历
-    public void perOrderNormal(){
+    // 非递归前序遍历(深度优先遍历)
+    public void depthFirst(){
         StackArray<Node> stack  = new StackArray<Node>();
         stack.push(root);
         while (!stack.isEmpty()) {
@@ -166,6 +167,22 @@ public class BinarySearchTree<E extends Comparable<E>> {
             }
             if (node.left != null) {
                 stack.push(node.left);
+            }
+        }
+    }
+
+    // 非递归
+    public void breadthFirst(){
+        QueueArray<Node> queue  = new QueueArray<Node>();
+        queue.enqueue(root);
+        while (!queue.isEmpty()) {
+            Node node = queue.dequeue();
+            System.out.printf(String.valueOf(node.e));
+            if (node.left != null) {
+                queue.enqueue(node.left);
+            }
+            if (node.right != null) {
+                queue.enqueue(node.right);
             }
         }
     }
