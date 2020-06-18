@@ -187,6 +187,72 @@ public class BinarySearchTree<E extends Comparable<E>> {
         }
     }
 
+    // 删除最小元素
+    public E removeMin(){
+       E e = findMin();
+       root = removeMin(root);
+       return e;
+    }
+
+    private Node removeMin(Node node) {
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+        node.left = removeMin(node.left);
+        return node;
+    }
+
+    // 删除最大元素
+    public E removeMax(){
+        E e = findMax();
+        root = removeMax(root);
+        return e;
+    }
+
+    private Node removeMax(Node node) {
+        if (node.right == null) {
+            Node leftNode = node.left;
+            node.left = null;
+            size--;
+            return leftNode;
+        }
+        node.right = removeMax(node.right);
+        return node;
+    }
+
+    // 寻找最小值
+    public E findMin(){
+        if (size == 0) {
+            throw new IllegalArgumentException("Tree is empty");
+        }
+        return findMin(root).e;
+    }
+
+    private Node findMin(Node node){
+        if (node.left == null) {
+            return node;
+        }
+        return findMin(node.left);
+    }
+
+    // 寻找最小值
+    public E findMax(){
+        if (size == 0) {
+            throw new IllegalArgumentException("Tree is empty");
+        }
+        return findMax(root).e;
+    }
+
+    private Node findMax(Node node){
+        if (node.right == null) {
+            return node;
+        }
+        return findMax(node.right);
+    }
+
     @Override
     public String toString(){
         StringBuilder res = new StringBuilder();

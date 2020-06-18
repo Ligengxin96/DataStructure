@@ -2,6 +2,9 @@ package test.BinarySearchTree;
 
 import BinarySearchTree.BinarySearchTree;
 
+import java.util.ArrayList;
+import java.util.Random;
+
 /**
  * @author : Mr.Li
  * @version : V1.0
@@ -37,7 +40,39 @@ public class TestBinarySearchTree {
 //        System.out.println(bst);
     }
 
+    public static void test11(){
+        BinarySearchTree<Integer> bst = new BinarySearchTree<Integer>();
+        Random random = new Random();
+        int n = 1000;
+
+        // test removeMin
+        for(int i = 0 ; i < n ; i ++)
+            bst.add(random.nextInt(10000));
+
+        ArrayList<Integer> nums = new ArrayList<>();
+
+        while(!bst.isEmpty()) {
+            nums.add(bst.removeMin());
+        }
+
+        System.out.println(nums);
+
+        // test removeMax
+        for(int i = 0 ; i < n ; i ++) {
+            bst.add(random.nextInt(10000));
+        }
+
+        nums = new ArrayList<>();
+
+        while(!bst.isEmpty()) {
+            nums.add(bst.removeMax());
+        }
+
+        System.out.println(nums);
+    }
+
     public static void main(String[] args) {
-        test06();
+//        test06();
+        test11();
     }
 }
