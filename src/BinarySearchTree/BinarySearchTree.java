@@ -25,11 +25,6 @@ public class BinarySearchTree<E extends Comparable<E>> {
     private Node root;
     private int size;
 
-    public BinarySearchTree(E e) {
-        this.root = new Node(e);
-        size = 1;
-    }
-
     public BinarySearchTree() {
         this.root = null;
         size = 0;
@@ -238,7 +233,7 @@ public class BinarySearchTree<E extends Comparable<E>> {
         return findMin(node.left);
     }
 
-    // 寻找最小值
+    // 寻找最大值
     public E findMax(){
         if (size == 0) {
             throw new IllegalArgumentException("Tree is empty");
@@ -251,6 +246,47 @@ public class BinarySearchTree<E extends Comparable<E>> {
             return node;
         }
         return findMax(node.right);
+    }
+
+    public void remove(E e){
+       root = remove(root, e);
+    }
+
+    private Node remove(Node node, E e){
+        if (node == null) {
+            return null;
+        }
+        // 如果当前节点的值比目标值小,则递归左子树,大则递归右子树
+        if (e.compareTo(node.e) < 0) {
+            node.left = remove(node.left, e);
+            return node;
+        } 
+        if (e.compareTo(node.e) > 0) {
+            node.right = remove(node.right, e);
+            return node;
+        } 
+        if (e.compareTo(node.e) == 0) {
+            // 如果当前节点左子树为空,则直接让右子树替代当前节点
+            if (node.left == null) {
+                Node rightNode = node.right;
+                node.right = null;
+                size--;
+                return rightNode;
+            } 
+            if (node.right == null) {
+                Node leftNode = node.left;
+                node.left = null;
+                size--;
+                return leftNode;
+            }  
+            // node.left != null && node.right != null
+            Node successor = findMin(node.right);
+            successor.right = removeMin(node.right); // 因为这里替代操作,其实已经删除了一个节点了这里,所以不需要size--
+            successor.left = node.left; // 这里不知道为什么不能和上一步互换位置,没搞懂
+            node.left = node.right = null;
+            return successor;
+        }
+        return node;
     }
 
     @Override
