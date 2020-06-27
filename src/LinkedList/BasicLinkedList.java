@@ -122,6 +122,25 @@ public class BasicLinkedList<T> {
         return deleteNode.e;
     }
 
+    // 链表中删除元素
+    public void removeElement(T e) {
+        Node pre = virtualHead;
+        while (pre.next != null) {
+            if (e.equals(pre.next.e)) { // 找到了就退出,没找到就看看下一个
+                break;
+            } else {
+                pre = pre.next;
+            }
+            // 开始执行删除
+            if(pre.next != null) {
+                Node deleteNode = pre.next;
+                pre.next = deleteNode.next;
+                deleteNode.next = null;
+                size--;
+            }
+        }
+    }
+
     // 从链表中删除第一个位置的元素, 返回删除的元素
     public T removeFirst(){
         return remove(0);
