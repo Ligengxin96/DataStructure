@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import Interface.Set.Set;
 import Set.BSTSet;
 import Set.LinkedSet;
+import test.utils.FileOperation;
 
 /**
  * @author : Mr.Li
@@ -35,7 +36,7 @@ public class TestBstSetAndLinkedSet {
 
     public static void main(String[] args) {
 
-        String filename = "src\\test\\Set\\pride-and-prejudice.txt";
+        String filename = "src\\test\\Resource\\pride-and-prejudice.txt";
 
         BSTSet<String> bstSet = new BSTSet<String>();
         double time1 = testSet(bstSet, filename);
