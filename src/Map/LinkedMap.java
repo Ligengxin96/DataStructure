@@ -57,6 +57,9 @@ public class LinkedMap<K, V> implements Map<K, V> {
 
     @Override
     public void add(K key, V value) {
+        if (key == null) {
+            throw new IllegalArgumentException("key can't be null!");
+        }
         Node node = getNode(key);
         if(node == null) {
             virtualHead.next = new Node(key, value, virtualHead.next); // 插入链表的头部
