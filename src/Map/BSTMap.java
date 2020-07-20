@@ -37,6 +37,9 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
     }
 
     private Node getNode(Node node, K key) {
+        if (key == null) {
+            throw new IllegalArgumentException("key can't be null!");
+        }
         if (node == null) {
             return null;
         }
@@ -97,7 +100,7 @@ public class BSTMap<K extends Comparable<K>, V> implements Map<K, V> {
     public V remove(K key) {
         Node node = getNode(root, key);
         if (node != null) {
-            node = remove(root, key);
+            root = remove(root, key);
             return node.value;
         } else {
             return null;
