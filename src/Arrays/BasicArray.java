@@ -202,6 +202,16 @@ public class BasicArray<T> {
         data = newData;
     }
 
+    // 交换两个元素的位置
+    public void swap(int i, int j) {
+        if (i < 0 || j < 0 || i >= size || j >= size) {
+            throw new IllegalArgumentException("illegal index");
+        }
+        T temp = data[i];
+        data[i] = data[j];
+        data[j] = temp;
+    }
+
     @Override
     public String toString(){
         StringBuilder str = new StringBuilder();
