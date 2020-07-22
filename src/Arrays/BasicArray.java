@@ -1,5 +1,6 @@
 package Arrays;
 
+import java.lang.reflect.Array;
 import java.util.Objects;
 
 /**
@@ -25,6 +26,18 @@ public class BasicArray<T> {
     public BasicArray(int capacity) {
         size = 0;
         data = (T[])new Object[capacity];
+    }
+
+    /**
+     * 构造函数
+     * @param ary 一个数组
+     */
+    public BasicArray(T[]  ary) {
+        size = ary.length;
+        data = (T[])new Object[ary.length];
+        for(int i = 0 ; i < ary.length ; i ++) {
+            data[i] = ary[i];
+        }
     }
 
     /**

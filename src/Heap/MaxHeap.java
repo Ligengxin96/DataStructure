@@ -2,6 +2,8 @@ package Heap;
 
 import Arrays.BasicArray;
 
+import java.lang.reflect.Array;
+
 /**
  * @author : Mr.Li
  * @version : V1.0
@@ -18,6 +20,15 @@ public class MaxHeap<E extends Comparable<E>> {
 
     public MaxHeap(int capacity) {
         heap = new BasicArray<E>(capacity);
+    }
+
+    public MaxHeap(E[] ary) {
+        heap = new BasicArray<E>(ary);
+        if (ary.length > 1) {
+            for (int i = parent(heap.getSize() - 1); i >= 0; i--) {
+                siftDown(i);
+            }
+        }
     }
 
     public int getSize() {
@@ -75,6 +86,14 @@ public class MaxHeap<E extends Comparable<E>> {
                break;
            }
         }
+    }
+
+    // 取出堆中的最大元素，并且替换成元素e
+    public E replace(E e) {
+        E max = getMax();
+        heap.set(e, 0);
+        siftDown(0);
+        return max;
     }
 
     /**
