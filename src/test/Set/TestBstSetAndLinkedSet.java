@@ -36,7 +36,7 @@ public class TestBstSetAndLinkedSet {
 
     public static void main(String[] args) {
 
-        String filename = "src\\test\\Resource\\pride-and-prejudice.txt";
+        String filename = "src\\test\\utils\\Resource\\pride-and-prejudice.txt";
 
         BSTSet<String> bstSet = new BSTSet<String>();
         double time1 = testSet(bstSet, filename);

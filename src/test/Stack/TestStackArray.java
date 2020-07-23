@@ -1,6 +1,6 @@
-package test.Arrays;
+package test.Stack;
 
-import Arrays.StackArray;
+import Stack.StackArray;
 
 /**
  * @author : Mr.Li

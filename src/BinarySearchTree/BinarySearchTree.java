@@ -1,7 +1,7 @@
 package BinarySearchTree;
 
-import Arrays.QueueArray;
-import Arrays.StackArray;
+import Queue.QueueArray;
+import Stack.StackArray;
 
 /**
  * @author : Mr.Li

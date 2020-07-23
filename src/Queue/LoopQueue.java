@@ -1,4 +1,4 @@
-package Arrays;
+package Queue;
 
 import Interface.Arrays.Queue;
 

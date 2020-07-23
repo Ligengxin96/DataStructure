@@ -1,6 +1,6 @@
-package test.Arrays;
+package test.Queue;
 
-import Arrays.QueueArray;
+import Queue.QueueArray;
 
 /**
  * @author : Mr.Li

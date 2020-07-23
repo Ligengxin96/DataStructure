@@ -14,7 +14,7 @@ import java.util.ArrayList;
  */
 public class TestLinkedMap {
     public static void test06(){
-        String filename = "src\\test\\Resource\\pride-and-prejudice.txt";
+        String filename = "src\\test\\utils\\Resource\\pride-and-prejudice.txt";
         System.out.println("Pride and Prejudice");
         ArrayList<String> words = new ArrayList<>();
         if(FileOperation.readFile(filename, words)) {

@@ -1,5 +1,6 @@
-package Arrays;
+package Queue;
 
+import Arrays.BasicArray;
 import Interface.Arrays.Queue;
 
 /**

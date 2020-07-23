@@ -1,5 +1,6 @@
-package Arrays;
+package Stack;
 
+import Arrays.BasicArray;
 import Interface.Arrays.Stack;
 
 /**

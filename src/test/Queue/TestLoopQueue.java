@@ -1,6 +1,6 @@
-package test.Arrays;
+package test.Queue;
 
-import Arrays.LoopQueue;
+import Queue.LoopQueue;
 
 /**
  * @author : ligengxin

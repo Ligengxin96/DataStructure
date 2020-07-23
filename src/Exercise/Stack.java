@@ -1,6 +1,6 @@
 package Exercise;
 
-import Arrays.StackArray;
+import Stack.StackArray;
 
 import java.util.HashMap;
 import java.util.Map;
